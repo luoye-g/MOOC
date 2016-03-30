@@ -25,21 +25,29 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public static final int SLIDER = 5;
     public static final int GIRD = 6;
+    public static final int LIST = 7;
     Activity activity;
     LayoutInflater layoutInflater;
 
     class GirdViewHolder extends RecyclerView.ViewHolder {
 
-        //@Bind(R.id.item_girdview_title) TextView title;
-        //@Bind(R.id.item_girdview) GridView gridView;
-        NoScrollGridView gridView;
-        TextView title;
+        @Bind(R.id.item_girdview_title) TextView title;
+        @Bind(R.id.item_girdview) NoScrollGridView gridView;
 
         public GirdViewHolder(View itemView) {
             super(itemView);
-            //ButterKnife.bind(this, itemView);
-            gridView = (NoScrollGridView) itemView.findViewById(R.id.item_girdview);
-            title = (TextView) itemView.findViewById(R.id.item_girdview_title);
+            ButterKnife.bind(this, itemView);
+        }
+    }
+
+    class ListViewHolder extends RecyclerView.ViewHolder{
+
+        @Bind(R.id.item_listview_title) TextView title;
+        @Bind(R.id.item_listview) NoScrollListView listView;
+
+        public ListViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 
@@ -68,13 +76,11 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 //可用高度小于100dp
                 Point point = new Point();
                 ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getSize(point);
-                int d = point.x;
-                layoutParams = new FrameLayout.LayoutParams(d, (int) (((float) d) / 2.333333f));
+                int width = point.x;
+                layoutParams = new FrameLayout.LayoutParams(width, (int) (((float) width) / 2.333333f));
 
             } else {
-                Log.d("layoutParams before", layoutParams.height + "");
                 layoutParams.height = (int) (((float) layoutParams.width) / 2.333333f);
-                Log.d("layoutParams after", layoutParams.height + "");
             }
             sliderLayout.setLayoutParams(layoutParams);
             sliderLayout.setCustomIndicator(indicator);
@@ -88,6 +94,8 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 return new ViewHolderSlider(layoutInflater.inflate(R.layout.item_slider_banner, parent, false));
             case GIRD:
                 return new GirdViewHolder(layoutInflater.inflate(R.layout.item_girdview, parent, false));
+            case LIST:
+                return new ListViewHolder(layoutInflater.inflate(R.layout.item_listview, parent, false));
             default:
                 return new GirdViewHolder(layoutInflater.inflate(R.layout.item_girdview, parent, false));
         }
@@ -96,7 +104,8 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ViewHolderSlider) {
-            ((ViewHolderSlider) holder).sliderLayout.setIndicatorVisibility(PagerIndicator.IndicatorVisibility.Visible);
+            ((ViewHolderSlider) holder).sliderLayout.removeAllSliders();
+                    ((ViewHolderSlider) holder).sliderLayout.setIndicatorVisibility(PagerIndicator.IndicatorVisibility.Visible);
             ((ViewHolderSlider) holder).sliderLayout.startAutoCycle();
             ((ViewHolderSlider) holder).sliderLayout.setPresetTransformer(SliderLayout.Transformer.Default);
             BaseSliderView sliderView = new DefaultSliderView(activity);
@@ -107,6 +116,8 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         } else if (holder instanceof GirdViewHolder) {
             ((GirdViewHolder) holder).title.setText("热门收藏");
             ((GirdViewHolder) holder).gridView.setAdapter(new GridAdapter(activity));
+        } else  if (holder instanceof ListViewHolder) {
+            ((ListViewHolder) holder).title.setText("云课堂");
         }
 
 
@@ -121,6 +132,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public int getItemViewType(int position) {
         if (position == 0) return SLIDER;
         if (position == 1) return GIRD;
+        if (position == 2) return LIST;
         return super.getItemViewType(position);
     }
 }
