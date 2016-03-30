@@ -26,6 +26,9 @@
             android:name=".Activity.DetailActivity"
             android:label="@string/title_activity_detail"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Activity.ClassActivity"
+            android:label="ClassActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
