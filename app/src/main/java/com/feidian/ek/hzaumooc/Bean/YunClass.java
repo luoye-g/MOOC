@@ -24,5 +24,5 @@ public class YunClass {
                     "美味的水果带给人类的财富、健康和愉悦的同时，让我们一起追寻柑桔、桃、猕猴桃、梨和葡萄的优" +
                     "良品种是如何走进我们的生活的。"};
     public  static final String teacher[]={" 李斌"," 刘凡"," 姜玲"};
-    public static final int image[]={R.mipmap.spyyzcdsb, R.mipmap.dzyqg, R.mipmap.mwsg};
+    //public static final int image[]={R.mipmap.spyyzcdsb, R.mipmap.dzyqg, R.mipmap.mwsg};
 }
