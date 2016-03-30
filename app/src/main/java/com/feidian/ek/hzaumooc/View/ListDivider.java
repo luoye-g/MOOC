@@ -12,7 +12,7 @@ import android.view.View;
 public class ListDivider extends RecyclerView.ItemDecoration {
 
     final int height = 16;
-    final Drawable drawable = new ColorDrawable(0xEEEEEE);
+    final Drawable drawable = new ColorDrawable(0xE0E0E0);
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {

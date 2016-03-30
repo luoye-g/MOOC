@@ -1,10 +1,9 @@
-package com.feidian.ek.hzaumooc.View;
+package com.feidian.ek.hzaumooc.View.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +15,9 @@ import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.feidian.ek.hzaumooc.R;
+import com.feidian.ek.hzaumooc.View.DefaultSliderView;
+import com.feidian.ek.hzaumooc.View.NoScrollGridView;
+import com.feidian.ek.hzaumooc.View.NoScrollListView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,7 +34,8 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     class GirdViewHolder extends RecyclerView.ViewHolder {
 
         @Bind(R.id.item_girdview_title) TextView title;
-        @Bind(R.id.item_girdview) NoScrollGridView gridView;
+        @Bind(R.id.item_girdview)
+        NoScrollGridView gridView;
 
         public GirdViewHolder(View itemView) {
             super(itemView);
@@ -43,7 +46,8 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     class ListViewHolder extends RecyclerView.ViewHolder{
 
         @Bind(R.id.item_listview_title) TextView title;
-        @Bind(R.id.item_listview) NoScrollListView listView;
+        @Bind(R.id.item_listview)
+        NoScrollListView listView;
 
         public ListViewHolder(View itemView) {
             super(itemView);
@@ -118,6 +122,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ((GirdViewHolder) holder).gridView.setAdapter(new GridAdapter(activity));
         } else  if (holder instanceof ListViewHolder) {
             ((ListViewHolder) holder).title.setText("云课堂");
+            ((ListViewHolder) holder).listView.setAdapter(new ListAdapter(activity));
         }
 
 
@@ -125,7 +130,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 2;
+        return 3;
     }
 
     @Override

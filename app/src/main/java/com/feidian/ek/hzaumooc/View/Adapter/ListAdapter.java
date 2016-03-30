@@ -1,8 +1,6 @@
-package com.feidian.ek.hzaumooc.View;
-
+package com.feidian.ek.hzaumooc.View.Adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,22 +13,25 @@ import com.feidian.ek.hzaumooc.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class GridAdapter extends BaseAdapter {
-    public final int GRID_SIZE = 4;
+/**
+ * Created by luoba on 2016/3/30.
+ */
+public class ListAdapter extends BaseAdapter{
+
+    public static final int LIST_SIZE = 3;
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public GridAdapter(Context context) {
+    public ListAdapter(Context context) {
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
     }
 
-    public class ViewHolder {
+    class ViewHolder {
 
-        @Bind(R.id.grid_cover)
-        ImageView iv;
-        @Bind(R.id.grid_title)
-        TextView tv;
+        @Bind(R.id.lv_cover) ImageView cover;
+        @Bind(R.id.lv_class_name) TextView name;
+        @Bind(R.id.lv_author) TextView author;
 
         public ViewHolder(View v) {
             ButterKnife.bind(this, v);
@@ -39,7 +40,7 @@ public class GridAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return GRID_SIZE;
+        return LIST_SIZE;
     }
 
     @Override
@@ -56,16 +57,15 @@ public class GridAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.gridview_item, parent, false);
+            convertView = layoutInflater.inflate(R.layout.listview_item, parent, false);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
-
 
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.iv.setBackgroundColor(Color.CYAN);
-        holder.tv.setText("hello");
+        holder.name.setText("微生物");
+        holder.author.setText("赵兵");
         return convertView;
     }
 }

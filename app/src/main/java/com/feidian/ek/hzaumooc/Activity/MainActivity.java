@@ -12,7 +12,7 @@ import android.view.MenuItem;
 
 import com.feidian.ek.hzaumooc.R;
 import com.feidian.ek.hzaumooc.View.ListDivider;
-import com.feidian.ek.hzaumooc.View.MainAdapter;
+import com.feidian.ek.hzaumooc.View.Adapter.MainAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
