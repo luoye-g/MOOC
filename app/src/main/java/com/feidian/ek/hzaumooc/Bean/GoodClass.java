@@ -5,19 +5,19 @@ package com.feidian.ek.hzaumooc.Bean;
  */
 public class GoodClass {
     public static final String[] CLASSKIND={"国家级精品视频公开课","国家级精品资源共享课","省级精品课程"};
-    public static final String[] COUNTRYVIDEO_JPG={
+    public static final String[] COUNTRYVIDEO_JPG={  //国家级精品视频公开课图片
             "http://211.69.141.12/upload/ffbc137c-9283-4ab6-b474-68096d2846d7.jpg",
             "http://211.69.141.12/upload/62c39c44-16ca-4975-b119-9c00f0f84498.jpg"};
-    public static final String[] COUNTRYVIDEO_WEB={
+    public static final String[] COUNTRYVIDEO_WEB={//国家级精品视频公开课链接网址
             "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=111",
             "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=120"};
-    public static final String[] COUNTRYVIDEO_CLASSNAME={
+    public static final String[] COUNTRYVIDEO_CLASSNAME={//国家级精品视频公开课课程名
             "魅力汉语","微生物与人类生活"
     };
-    public static final String[] COUNTRYVIDEO_TEACHERNAME={
+    public static final String[] COUNTRYVIDEO_TEACHERNAME={//国家级精品视频公开课老师名
             "兰霞","赵斌"
     };
-    public static final String[] COUNTRYRESOURSE_JPG={
+    public static final String[] COUNTRYRESOURSE_JPG={//国家级精品资源共享课图片
             "http://211.69.141.12/upload/26842548-207a-452e-a357-32f9aac9204c.jpg" ,
                     "http://211.69.141.12/upload/26acfb14-5902-493c-88a1-48f40ad9c592.jpg" ,
                     "http://211.69.141.12/upload/6e5fdde8-981f-4f5f-9269-0c3fb2abb9d2.jpg" ,
@@ -51,7 +51,7 @@ public class GoodClass {
                     "http://211.69.141.12/upload/a034acfd-b1a5-465e-b239-ba0d7f170258.jpg" ,
                     "http://211.69.141.12/upload/0d960379-1fb7-4ef7-8b64-8a06bfb38778.jpg"
     };
-    public static final String[] COUNTRYRESOURSE_TEACHERNAME={
+    public static final String[] COUNTRYRESOURSE_TEACHERNAME={//国家级精品资源共享课老师名字
       "刘榜" ,
               "钟涨宝" ,
               "彭克美" ,
@@ -85,7 +85,7 @@ public class GoodClass {
               "刘永忠" ,
               "雷朝亮"
     };
-    public static final String[] COUNTRYRESOURSE_CLASSNAME={
+    public static final String[] COUNTRYRESOURSE_CLASSNAME={//国家级精品资源共享课课程名字
             "家畜育种学" ,
                     "农村社会学" ,
                     "动物解剖学及组织胚胎学" ,
@@ -119,7 +119,7 @@ public class GoodClass {
                     "园艺植物栽培学（总论）" ,
                     "普通昆虫学"
     };
-    public static final String[] COUNTRYRESOURSE_WEB={
+    public static final String[] COUNTRYRESOURSE_WEB={//国家级精品资源共享课链接
             "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=31" ,
             "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=46" ,
             "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=43" ,
@@ -153,7 +153,7 @@ public class GoodClass {
             "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=48" ,
             "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=29",
     };
-    public static final String[] PROVINCEGOODCLASS_JPG={
+    public static final String[] PROVINCEGOODCLASS_JPG={//省级精品课程图片
       "http://211.69.141.12/upload/f77749ee-fbcd-4453-88c7-dbddf806cdcf.jpg" ,
               "http://211.69.141.12/upload/ff8257d1-0ee4-4a39-abe5-22d8a778c4f7.jpg" ,
               "http://211.69.141.12/upload/62966638-044b-461c-92ff-82ace932a533.jpg" ,
@@ -165,7 +165,7 @@ public class GoodClass {
               "http://211.69.141.12/upload/3be87f80-a9bb-4e55-9bda-4053b46d8a91.jpg" ,
               "http://211.69.141.12/upload/d6da0313-f3a5-4382-96a4-796b75a1bbbb.jpg"
     };
-    public static final String[] PROVINCEGOODCLASS_WEB={
+    public static final String[] PROVINCEGOODCLASS_WEB={//省级精品课程链接
       "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=47" ,
               "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=22" ,
               "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=78" ,
@@ -177,7 +177,7 @@ public class GoodClass {
               "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=88" ,
               "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=84"
     };
-    public static final String[] PROVINCEGOODCLASS_TEACHERNAME={
+    public static final String[] PROVINCEGOODCLASS_TEACHERNAME={//省级精品课程老师名
       "姜道宏" ,
               "袁宗辉" ,
               "廖庆喜" ,
@@ -189,7 +189,7 @@ public class GoodClass {
               "万江红" ,
               "姜玲"
     };
-    public static final String[] PROVINCEGOODCLASS_CLASSNAME={
+    public static final String[] PROVINCEGOODCLASS_CLASSNAME={//省级精品课程课程名
             "普通植物病理学" ,
                     "兽医药理学" ,
                     "汽车拖拉机学" ,
