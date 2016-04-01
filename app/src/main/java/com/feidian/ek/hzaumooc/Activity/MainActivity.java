@@ -1,5 +1,6 @@
 package com.feidian.ek.hzaumooc.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.feidian.ek.hzaumooc.Bean.MainViewTitle;
 import com.feidian.ek.hzaumooc.R;
 import com.feidian.ek.hzaumooc.View.ListDivider;
 import com.feidian.ek.hzaumooc.View.Adapter.MainAdapter;
@@ -64,6 +66,11 @@ public class MainActivity extends BaseActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            Intent intent =new Intent(this,ClassActivity.class);
+            Bundle bundle=new Bundle();
+            bundle.putInt("type", MainViewTitle.GOODCLASS);
+            intent.putExtras(bundle);
+            startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
 
