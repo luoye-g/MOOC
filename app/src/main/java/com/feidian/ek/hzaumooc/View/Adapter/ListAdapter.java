@@ -8,7 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.feidian.ek.hzaumooc.Bean.GoodClass;
 import com.feidian.ek.hzaumooc.R;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -18,13 +22,36 @@ import butterknife.ButterKnife;
  */
 public class ListAdapter extends BaseAdapter{
 
-    public static final int LIST_SIZE = 3;
+    private int LIST_SIZE = 3;//记录总共的item数
+    private int kind=0;//记录第几个list
     private Context context;
     private LayoutInflater layoutInflater;
 
     public ListAdapter(Context context) {
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
+    }
+    public ListAdapter(Context context,int kind)//主要用于黄宇的精品课程页面
+    {
+        this(context);
+        this.kind=kind;
+        if(kind==1)//国家级精品视频
+        {
+            LIST_SIZE= GoodClass.COUNTRYVIDEO_JPG.length;
+        }
+        else if (kind==2)//国家级精品资源
+        {
+            LIST_SIZE=GoodClass.COUNTRYRESOURSE_JPG.length;
+        }
+        else if(kind==3)//省级精品资源
+        {
+            LIST_SIZE=GoodClass.PROVINCEGOODCLASS_JPG.length;
+        }
+        else//一般情况
+        {
+            LIST_SIZE=3;
+        }
+
     }
 
     class ViewHolder {
@@ -64,8 +91,30 @@ public class ListAdapter extends BaseAdapter{
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.name.setText("微生物");
-        holder.author.setText("赵兵");
+        switch (kind)
+        {
+            case 0:holder.name.setText("微生物");
+                holder.author.setText("赵兵");
+                break;
+            case 1://精品课程——国家级精品视频
+                Glide.with(context).load(GoodClass.COUNTRYVIDEO_JPG[position]).error(R.mipmap.school).into(holder.cover);
+                holder.name.setText(GoodClass.COUNTRYVIDEO_CLASSNAME[position]);
+                holder.author.setText(GoodClass.COUNTRYVIDEO_TEACHERNAME[position]);
+                break;
+            case 2://精品课程——国家级精品资源
+                Glide.with(context).load(GoodClass.COUNTRYRESOURSE_JPG[position]).error(R.mipmap.school).into(holder.cover);
+                holder.name.setText(GoodClass.COUNTRYRESOURSE_CLASSNAME[position]);
+                holder.author.setText(GoodClass.COUNTRYRESOURSE_TEACHERNAME[position]);
+                break;
+            case 3://精品课程——省级精品资源
+                Glide.with(context).load(GoodClass.PROVINCEGOODCLASS_JPG[position]).error(R.mipmap.school).into(holder.cover);
+                holder.name.setText(GoodClass.PROVINCEGOODCLASS_CLASSNAME[position]);
+                holder.author.setText(GoodClass.PROVINCEGOODCLASS_TEACHERNAME[position]);
+                break;
+            default:holder.name.setText("微生物");
+                holder.author.setText("赵兵");
+                break;
+        }
         return convertView;
     }
 }

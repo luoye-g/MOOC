@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 
 import com.feidian.ek.hzaumooc.Bean.MainViewTitle;
@@ -25,9 +27,9 @@ public class ClassActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.class_main);
         Bundle bundle=getIntent().getExtras();
         int kind=bundle.getInt("type");//获取要显示的课程序号
+        setContentView(R.layout.class_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle( MainViewTitle.MAIN[kind - 1]);
         /*toolbar.setLogo(this.getResources().getDrawable(R.mipmap.undo));*/
@@ -36,9 +38,10 @@ public class ClassActivity extends BaseActivity {
         LinearLayoutManager l=new LinearLayoutManager(this);
         l.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(l);
-        recyclerView.setAdapter(new ClassAdapter(this));
+        recyclerView.setAdapter(new ClassAdapter(this,kind));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new ListDivider());
+
 
     }
 }

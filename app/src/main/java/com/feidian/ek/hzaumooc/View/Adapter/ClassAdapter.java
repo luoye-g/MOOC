@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.feidian.ek.hzaumooc.Bean.GoodClass;
+import com.feidian.ek.hzaumooc.Bean.MainViewTitle;
+import com.feidian.ek.hzaumooc.Bean.YunClass;
 import com.feidian.ek.hzaumooc.R;
 import com.feidian.ek.hzaumooc.View.NoScrollGridView;
 import com.feidian.ek.hzaumooc.View.NoScrollListView;
@@ -21,15 +23,16 @@ import butterknife.ButterKnife;
  * Created by Administrator on 2016/3/29.
  */
 public class ClassAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     private Context activity;
+    private int type;
     LayoutInflater layoutInflater;
 
-    public ClassAdapter(Context activity) {
+    public ClassAdapter(Context activity,int type) {
         this.activity = activity;
         layoutInflater = LayoutInflater.from(activity);
+        this.type=type;
     }
-    /*public class CardViewHolder extends RecyclerView.ViewHolder {
+   /* public class CardViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.class_gridview_image) ImageView imageView;
         @Bind(R.id.class_gridview_classname) TextView textView;
         @Bind(R.id.class_gridview_teacher)TextView teacher;
@@ -39,17 +42,6 @@ public class ClassAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             ButterKnife.bind(this,itemView);
         }
     }*/
-    class GirdViewHolder extends RecyclerView.ViewHolder {
-
-        @Bind(R.id.item_girdview_title) TextView title;
-        @Bind(R.id.item_girdview)
-        NoScrollGridView gridView;
-
-        public GirdViewHolder(View itemView) {
-            super(itemView);
-            ButterKnife.bind(this, itemView);
-        }
-    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -61,13 +53,17 @@ public class ClassAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ListViewHolder) {
-            ((ListViewHolder) holder).title.setText(GoodClass.class_kind[position]);
-            ((ListViewHolder) holder).listView.setAdapter(new ListAdapter(activity));
+            ((ListViewHolder) holder).title.setText(GoodClass.CLASSKIND[position]);
+            ((ListViewHolder) holder).listView.setAdapter(new ListAdapter(activity,position+1));
         }
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        if(type==MainViewTitle.GOODCLASS)
+              return 3;
+        else
+            return 0;
     }
+
 }
