@@ -43,18 +43,6 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    class ListViewHolder extends RecyclerView.ViewHolder{
-
-        @Bind(R.id.item_listview_title) TextView title;
-        @Bind(R.id.item_listview)
-        NoScrollListView listView;
-
-        public ListViewHolder(View itemView) {
-            super(itemView);
-            ButterKnife.bind(this, itemView);
-        }
-    }
-
     public MainAdapter(Activity activity) {
         this.activity = activity;
         layoutInflater = LayoutInflater.from(activity);

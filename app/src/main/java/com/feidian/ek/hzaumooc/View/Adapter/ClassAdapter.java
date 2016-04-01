@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.feidian.ek.hzaumooc.Bean.GoodClass;
 import com.feidian.ek.hzaumooc.R;
+import com.feidian.ek.hzaumooc.View.NoScrollGridView;
+import com.feidian.ek.hzaumooc.View.NoScrollListView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,33 +29,45 @@ public class ClassAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         this.activity = activity;
         layoutInflater = LayoutInflater.from(activity);
     }
-
-    public class CardViewHolder extends RecyclerView.ViewHolder {
+    /*public class CardViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.class_gridview_image) ImageView imageView;
-        @Bind(R.id.class_gridview_text) TextView textView;
+        @Bind(R.id.class_gridview_classname) TextView textView;
+        @Bind(R.id.class_gridview_teacher)TextView teacher;
 
         public CardViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
         }
+    }*/
+    class GirdViewHolder extends RecyclerView.ViewHolder {
+
+        @Bind(R.id.item_girdview_title) TextView title;
+        @Bind(R.id.item_girdview)
+        NoScrollGridView gridView;
+
+        public GirdViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+        }
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new CardViewHolder(layoutInflater.inflate(R.layout.class_activity_gridview_item, parent, false));
+        //return new CardViewHolder(layoutInflater.inflate(R.layout.class_activity_gridview_item, parent, false));
+        //return new GirdViewHolder(layoutInflater.inflate(R.layout.item_girdview, parent, false));
+        return new ListViewHolder(layoutInflater.inflate(R.layout.item_listview, parent, false));
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof CardViewHolder) {
-            ((CardViewHolder) holder).textView.setText(GoodClass.classname[position]);
-            Glide.with(activity).load(GoodClass.url[position]).error(R.mipmap.ic_launcher)
-                    .into(((CardViewHolder) holder).imageView);
+        if (holder instanceof ListViewHolder) {
+            ((ListViewHolder) holder).title.setText(GoodClass.class_kind[position]);
+            ((ListViewHolder) holder).listView.setAdapter(new ListAdapter(activity));
         }
     }
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 5;
     }
 }
