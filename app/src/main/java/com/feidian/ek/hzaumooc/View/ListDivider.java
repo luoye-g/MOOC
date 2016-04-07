@@ -12,12 +12,12 @@ import android.view.View;
 public class ListDivider extends RecyclerView.ItemDecoration {
 
     final int height = 16;
-    final Drawable drawable = new ColorDrawable(0xE0E0E0);
+    final Drawable drawable = new ColorDrawable(0xffe0e0e0);
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         int chlidAdapterPosition = parent.getChildAdapterPosition(view);
-        if(chlidAdapterPosition != 0) outRect.top = height;
+        if(chlidAdapterPosition != 0 &&chlidAdapterPosition != 1) outRect.top = height;
     }
 
     @Override
@@ -35,6 +35,7 @@ public class ListDivider extends RecyclerView.ItemDecoration {
                 drawable.setBounds(paddingleft, top - height, width, top);
                 drawable.draw(c);
             }
+
 
         }
 
