@@ -50,12 +50,13 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         @Bind(R.id.item_girdview_image)
         ImageView image;
         private MoreOnClickListener moreOnClickListener;
+        private ItemOnClickListener itemOnClickListener;
 
         public GirdViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
-        public void setMoreOnClickListener(int position)
+        public void setMoreOnClickListener(int position)//position表明其kind 传入的为在MainViewTitle定义的值
         {
             if(moreOnClickListener==null)
             {
@@ -65,7 +66,16 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             {
                 moreOnClickListener.setPosition(position);
             }
+            if(itemOnClickListener == null)
+            {
+                itemOnClickListener=new ItemOnClickListener(GIRD,activity,position);
+            }
+            else
+            {
+                itemOnClickListener.setPosition(position);
+            }
             more.setOnClickListener(moreOnClickListener);
+            gridView.setOnItemClickListener(itemOnClickListener);
         }
     }
 
@@ -205,7 +215,8 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if(position==ClaaRANK)
         {
             ((ListViewHolder) holder).title.setText("热门点击");
-            ((ListViewHolder) holder).listView.setAdapter(new ListAdapter(activity,4));
+            ((ListViewHolder) holder).listView.setAdapter(new ListAdapter(activity, 4));
+            ((ListViewHolder) holder).setItemOnClickListener(MainViewTitle.RANK,activity);
         }
     }
 }

@@ -26,11 +26,13 @@
         <activity
             android:name=".Activity.DetailActivity"
             android:label="@string/title_activity_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Activity.ClassActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.ClassActivity"
             android:label="ClassActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activity.HistoryActivity"></activity>
     </application>
 
 </manifest>

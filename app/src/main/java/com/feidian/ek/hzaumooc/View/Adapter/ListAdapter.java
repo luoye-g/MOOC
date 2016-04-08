@@ -63,7 +63,7 @@ public class ListAdapter extends BaseAdapter{
     public ListAdapter(Context context,int kind,int type)//用于云课堂页面
     {
         this(context);
-        this.kind=5;//用于第二个界面的云课堂
+        this.kind=kind;//5用于第二个界面的云课堂,6用于推荐课程
         if(type== MainViewTitle.YUNCLASS)
         {
             LIST_SIZE=YunClass.name.length;
@@ -137,6 +137,7 @@ public class ListAdapter extends BaseAdapter{
                 holder.name.setText(YunClass.name[position]);
                 holder.author.setText(YunClass.teacher[position]);
                 break;
+            case 6:
             default:holder.name.setText("微生物");
                 holder.author.setText("赵兵");
                 break;

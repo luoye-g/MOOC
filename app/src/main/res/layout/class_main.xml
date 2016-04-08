@@ -41,7 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
         android:src="@mipmap/refre"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end" />
+        android:layout_gravity="bottom|end"
+        app:theme="@style/AlertDialog.AppCompat.Light"/>
+
 
 </android.support.design.widget.CoordinatorLayout>
