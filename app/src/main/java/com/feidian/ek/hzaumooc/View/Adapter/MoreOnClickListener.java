@@ -22,17 +22,25 @@ public class MoreOnClickListener implements View.OnClickListener {
     }
     @Override
     public void   onClick(View v) {
-        if(position==MainViewTitle.GOODCLASS){
+        if(position == MainViewTitle.GOODCLASS){
         Intent intent =new Intent(activity,ClassActivity.class);
         Bundle bundle=new Bundle();
         bundle.putInt("type", MainViewTitle.GOODCLASS);
         intent.putExtras(bundle);
         activity.startActivity(intent);}
-        else if(position==MainViewTitle.YUNCLASS)
+        else if(position == MainViewTitle.YUNCLASS)
         {
             Intent intent =new Intent(activity,ClassActivity.class);
             Bundle bundle=new Bundle();
             bundle.putInt("type", MainViewTitle.YUNCLASS);
+            intent.putExtras(bundle);
+            activity.startActivity(intent);
+        }
+        else if(position == MainViewTitle.RECOMMEND)
+        {
+            Intent intent =new Intent(activity,ClassActivity.class);
+            Bundle bundle=new Bundle();
+            bundle.putInt("type", MainViewTitle.RECOMMEND);
             intent.putExtras(bundle);
             activity.startActivity(intent);
         }

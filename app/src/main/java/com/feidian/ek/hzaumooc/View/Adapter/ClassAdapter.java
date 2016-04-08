@@ -54,12 +54,21 @@ public class ClassAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ListViewHolder) {
             if(type==MainViewTitle.GOODCLASS){
-            ((ListViewHolder) holder).title.setText(GoodClass.CLASSKIND[position]);
-            ((ListViewHolder) holder).listView.setAdapter(new ListAdapter(activity,position+1));}
+                ((ListViewHolder) holder).title.setText(GoodClass.CLASSKIND[position]);
+                ((ListViewHolder) holder).listView.setAdapter(new ListAdapter(activity,position+1));
+                ((ListViewHolder) holder).setItemOnClickListener(MainViewTitle.GOODCLASS_1+position,activity);
+            }
             else if(type==MainViewTitle.YUNCLASS)
             {
                 ((ListViewHolder) holder).title.setText("在线课堂");
-                ((ListViewHolder) holder).listView.setAdapter(new ListAdapter(activity,5,type));
+                ((ListViewHolder) holder).listView.setAdapter(new ListAdapter(activity, 5, type));
+                ((ListViewHolder) holder).setItemOnClickListener(MainViewTitle.YUNCLASS, activity);
+            }
+            else if(type==MainViewTitle.RECOMMEND)
+            {
+                ((ListViewHolder) holder).title.setText("推荐课程");
+                ((ListViewHolder) holder).listView.setAdapter(new ListAdapter(activity, 2));
+                ((ListViewHolder) holder).setItemOnClickListener(MainViewTitle.RECOMMEND, activity);
             }
         }
     }
@@ -69,6 +78,8 @@ public class ClassAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         if(type==MainViewTitle.GOODCLASS)
               return 3;
         else if(type==MainViewTitle.YUNCLASS)
+            return 1;
+        else if(type == MainViewTitle.RECOMMEND)
             return 1;
         else
             return 0;

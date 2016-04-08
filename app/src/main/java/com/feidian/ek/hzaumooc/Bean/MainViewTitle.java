@@ -14,5 +14,9 @@ public class MainViewTitle {
     public static final int PROJECT=0;
     public static final int PREFECT=4; //优秀课程
     public static final int RECOMMEND=5;//推荐课程
+    public static final int RANK=6;//课程排名
+    public static final int GOODCLASS_1=31;
+    public static final int GOODCLASS_2=32;
+    public static final int GOODCLASS_3=33;
 
 }
