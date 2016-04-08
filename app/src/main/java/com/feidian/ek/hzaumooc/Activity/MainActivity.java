@@ -66,13 +66,11 @@ public class MainActivity extends BaseActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            Intent intent =new Intent(this,ClassActivity.class);
-            Bundle bundle=new Bundle();
-            bundle.putInt("type", MainViewTitle.GOODCLASS);
-            intent.putExtras(bundle);
-            startActivity(intent);
+
 
         } else if (id == R.id.nav_slideshow) {
+            Intent intent =new Intent(this,HistoryActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_manage) {
 
