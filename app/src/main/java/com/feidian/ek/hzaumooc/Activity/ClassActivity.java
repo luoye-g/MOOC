@@ -22,19 +22,22 @@ import butterknife.ButterKnife;
  */
 public class ClassActivity extends BaseActivity {
 
-    @Bind(R.id.main_list)
-    RecyclerView recyclerView;
+    @Bind(R.id.main_list) RecyclerView recyclerView;
+    @Bind(R.id.toolbar) Toolbar toolbar;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Bundle bundle=getIntent().getExtras();
         int kind=bundle.getInt("type");//获取要显示的课程序号
         setContentView(R.layout.class_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle( MainViewTitle.MAIN[kind - 1]);
+        ButterKnife.bind(this);
+
+        toolbar.setTitle(MainViewTitle.MAIN[kind - 1]);
         /*toolbar.setLogo(this.getResources().getDrawable(R.mipmap.undo));*/
         setSupportActionBar(toolbar);//设置标题栏
-        ButterKnife.bind(this);
+
         LinearLayoutManager l=new LinearLayoutManager(this);
         l.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(l);

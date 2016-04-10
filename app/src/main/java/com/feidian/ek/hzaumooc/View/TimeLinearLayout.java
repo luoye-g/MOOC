@@ -63,9 +63,6 @@ public class TimeLinearLayout extends LinearLayout {
         pointSize = attr.getDimensionPixelSize(R.styleable.UnderLineLinearLayout_point_size, 8);
         pointColor = attr.getDimensionPixelOffset(R.styleable.UnderLineLinearLayout_point_color, 0xff000000);//0xff3dd1a5);
 
-        int iconRes = attr.getResourceId(R.styleable.UnderLineLinearLayout_icon_src, R.drawable.ic_ok);
-        BitmapDrawable temp = (BitmapDrawable) context.getResources().getDrawable(iconRes);
-        if (temp != null) mIcon = temp.getBitmap();
 
         curOrientation = getOrientation();
         attr.recycle();//用于及时回收资源，方便下次再用，释放内存

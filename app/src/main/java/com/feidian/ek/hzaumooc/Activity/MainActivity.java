@@ -22,8 +22,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @Bind(R.id.main_list)
-    RecyclerView recyclerView;
+    @Bind(R.id.main_list) RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +63,12 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+            Intent intent =new Intent(this,DetailActivity.class);
+            startActivity(intent);
 
+        } else if (id == R.id.nav_gallery) {
+            Intent intent =new Intent(this,VideoActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
             Intent intent =new Intent(this,HistoryActivity.class);
