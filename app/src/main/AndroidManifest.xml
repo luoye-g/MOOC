@@ -43,7 +43,8 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="landscape"
             android:theme="@style/NoTitleFullscreen" />
-
+        <activity android:name=".share.ShareActivty"></activity>
+        <activity android:name=".download.DowloadAcivity"></activity>
     </application>
 
 </manifest>
