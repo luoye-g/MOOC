@@ -32,7 +32,9 @@
             android:label="ClassActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activity.HistoryActivity"></activity>
+        <activity android:name=".Activity.HistoryActivity"
+            android:screenOrientation="portrait"
+            android:label="浏览历史"></activity>
     </application>
 
 </manifest>
