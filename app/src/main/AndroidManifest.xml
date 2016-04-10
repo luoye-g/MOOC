@@ -25,10 +25,19 @@
         <activity
             android:name=".Activity.DetailActivity"
             android:label="@string/title_activity_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Activity.ClassActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.ClassActivity"
             android:label="ClassActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.VideoActivity"
+            android:configChanges="screenSize|smallestScreenSize|keyboard|keyboardHidden"
+            android:label="@string/title_activity_fullscreen"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/NoTitleFullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 
 </manifest>
