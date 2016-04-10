@@ -22,8 +22,6 @@ import android.os.Handler;
 import android.widget.Toast;
 
 import com.feidian.ek.hzaumooc.R;
-import com.feidian.ek.hzaumooc.download.downloaddemo.DowloadAcivity;
-import com.feidian.ek.hzaumooc.download.downloaddemo.FileM;
 import java.io.File;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -65,6 +63,9 @@ public class APPFragment extends Fragment implements View.OnClickListener{
 	}
 	public boolean initialize(){
 		File file = new File(Environment.getExternalStorageDirectory().getPath()+"/课程中心");
+		if(!file.exists()){
+			file.mkdirs();
+		}
 		list = new ArrayList<>();
 		File[] xfile = file.listFiles();
 		FileM message;
