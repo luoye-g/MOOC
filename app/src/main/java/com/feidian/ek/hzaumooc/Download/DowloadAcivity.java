@@ -138,10 +138,10 @@ public class DowloadAcivity extends FragmentActivity {
   public void setHandler(Handler handler){
       this.handler = handler;
   }
-    @Override
+    /*@Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
-        if (keyCode == KeyEvent.KEYCODE_BACK )
+        /*if (keyCode == KeyEvent.KEYCODE_BACK )
         {
           Dialog dialog = new AlertDialog.Builder(DowloadAcivity.this).setIcon(R.mipmap.ic_launcher)
                               .setTitle("确定退出么？").setMessage("建议下载完成后退出")
@@ -160,6 +160,6 @@ public class DowloadAcivity extends FragmentActivity {
             dialog.show();
 
         }
-        return false;
-    }
+        return super.onKeyDown(keyCode,event);
+    }*/
 }

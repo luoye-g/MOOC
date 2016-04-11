@@ -2,6 +2,7 @@ package com.feidian.ek.hzaumooc.share;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.GridView;
 import android.widget.ListView;
 
 import com.feidian.ek.hzaumooc.R;
@@ -21,14 +22,14 @@ public class ShareActivty extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.share);
-        listView = (ListView)super.findViewById(R.id.share_list);
+        setContentView(R.layout.test_share);
+        /*listView = (ListView)super.findViewById(R.id.share_list);
         list = new ArrayList<>();
         for(int i = 0;i<image.length;i++){
             ShareM share = new ShareM(image[i],text[i]);
             list.add(share);
         }
         adapter = new ShareAdapter(this,list,R.layout.share_item);
-        listView.setAdapter(adapter);
+        listView.setAdapter(adapter);*/
     }
 }
