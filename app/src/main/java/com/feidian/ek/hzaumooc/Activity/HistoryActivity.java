@@ -2,6 +2,7 @@ package com.feidian.ek.hzaumooc.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -16,6 +17,8 @@ public class HistoryActivity extends AppCompatActivity {
 
     String [] s={"美丽汉语","精品数学","美丽增老师"};
     String[] data={"2016-01-21","2016-04-08","2016-04-19"};
+    @Bind(R.id.history_toolbar)
+    Toolbar toolbar;
     @Bind(R.id.timeline_layout)
     TimeLinearLayout timeLinearLayout;
     @Override
@@ -23,6 +26,7 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
         ButterKnife.bind(this);
+        toolbar.setTitle("浏览历史");
         for (int i=0;i<=10;i++)
         {
             addItem(i%3);
