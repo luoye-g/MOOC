@@ -7,7 +7,7 @@ import com.feidian.ek.hzaumooc.R;
  */
 public class MainViewTitle {
     public static final String[] MAIN={"优秀名师","云课堂","精品课程","优秀课程","推荐课程"};
-    public static final int[] IMAGE={R.mipmap.like2,R.mipmap.star_empty2,R.mipmap.heart};
+    public static final int[] IMAGE={R.mipmap.like2,R.mipmap.star_empty2,R.mipmap.cloud2};
     public static final int TEACHER=1;//优秀名师
     public static final int YUNCLASS=2;//云课堂
     public static final int GOODCLASS=3; //精品课程
