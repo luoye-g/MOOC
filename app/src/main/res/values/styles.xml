@@ -33,5 +33,12 @@
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
     </style>
+    <style name="mypopwindow_anim_style">
+        <item name="android:windowEnterAnimation">@anim/anim_share_goin</item>
+        <!-- 指定显示的动画xml -->
+
+        <item name="android:windowExitAnimation">@anim/anim_share_goout</item>
+        <!-- 指定消失的动画xml -->
+    </style>
 
 </resources>
