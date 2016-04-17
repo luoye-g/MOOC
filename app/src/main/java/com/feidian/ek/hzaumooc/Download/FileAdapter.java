@@ -20,12 +20,10 @@ public class FileAdapter extends BaseAdapter{
     private List<FileM> data;
     private Context context;
     private int layout;
-    private int image;
-    public FileAdapter(List<FileM> data, Context context, int layout,int image){
+    public FileAdapter(List<FileM> data, Context context, int layout){
         this.data = data;
         this.context = context;
         this.layout = layout;
-        this.image = image;
     }
     @Override
     public int getCount() {
@@ -60,7 +58,7 @@ public class FileAdapter extends BaseAdapter{
             view = convertView;
             viewHolder = (ViewHolder)view.getTag();
         }
-        viewHolder.image.setImageResource(image);
+        viewHolder.image.setImageResource(file.getImage());
         viewHolder.name.setText(file.getName());
         viewHolder.date.setText(file.getDate());
         viewHolder.size.setText(file.getSize());

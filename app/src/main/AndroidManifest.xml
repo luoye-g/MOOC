@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.feidian.ek.hzaumooc">
 
@@ -44,8 +45,6 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="landscape"
             android:theme="@style/NoTitleFullscreen" />
-        <activity android:name=".share.ShareActivty"
-            android:theme="@style/Theme.AppCompat.Dialog"></activity>
         <activity android:name=".download.DowloadAcivity"></activity>
     </application>
 

@@ -1,5 +1,6 @@
 package com.feidian.ek.hzaumooc.Activity;
 
+import android.app.Application;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -20,11 +21,11 @@ import android.widget.PopupWindow;
 
 import com.feidian.ek.hzaumooc.Bean.MainViewTitle;
 import com.feidian.ek.hzaumooc.R;
+import com.feidian.ek.hzaumooc.Utils.DownloadUtils;
 import com.feidian.ek.hzaumooc.View.Adapter.ShareAdapter;
 import com.feidian.ek.hzaumooc.View.ListDivider;
 import com.feidian.ek.hzaumooc.View.Adapter.MainAdapter;
 import com.feidian.ek.hzaumooc.download.DowloadAcivity;
-import com.feidian.ek.hzaumooc.share.ShareActivty;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -42,7 +43,6 @@ public class MainActivity extends BaseActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ButterKnife.bind(this);
-
         recyclerView.setAdapter(new MainAdapter(this));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new ListDivider());
@@ -89,8 +89,6 @@ public class MainActivity extends BaseActivity
 
         } else if (id == R.id.nav_share) {
             showPopuptWindow();
-            /*Intent intent =new Intent(this,ShareActivty.class);
-            startActivity(intent);*/
         } else if (id == R.id.nav_send) {
 
         }
@@ -142,5 +140,9 @@ public class MainActivity extends BaseActivity
         WindowManager.LayoutParams params=this.getWindow().getAttributes();
         params.alpha=1.0f;
         this.getWindow().setAttributes(params);
+    }
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
     }
 }

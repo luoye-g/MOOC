@@ -38,7 +38,7 @@ public class APPFragment extends Fragment implements View.OnClickListener{
 	private RelativeLayout relativeLayout = null;
 	private DowloadAcivity myActivity = null;
 	private String path;
-	private int image = R.mipmap.broken;
+	private int image = 0;
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class APPFragment extends Fragment implements View.OnClickListener{
 			myActivity = (DowloadAcivity)getActivity();
 			myActivity.setHandler(handler);
 			isFind();
-			adapter = new FileAdapter(list,getActivity(),R.layout.down_data,image);
+			adapter = new FileAdapter(list,getActivity(),R.layout.down_data);
 			listView.setAdapter(adapter);
 			listView.setOnItemClickListener(new OnClickListenerIml());
 			super.registerForContextMenu(listView);
@@ -71,9 +71,20 @@ public class APPFragment extends Fragment implements View.OnClickListener{
 		FileM message;
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 		for(int i = 0;i<xfile.length;i++){
+			String name = xfile[i].getName();
+			name = name.substring(name.lastIndexOf(".")+1);
+			if(name.equals("jpg")){
+				image = R.mipmap.jpg;
+			}else if(name.equals("png")){
+				image = R.mipmap.png;
+			}else if(name.equals("mp4")||name.equals("3gp")){
+				image = R.mipmap.vedio;
+			}else{
+				image = R.mipmap.unknow;
+			}
 			message = new FileM(xfile[i].getName(),String.valueOf(
 					simpleDateFormat.format(new Date(xfile[i].lastModified()))),
-					guiGe(xfile[i].length()),xfile[i].getAbsolutePath());
+					guiGe(xfile[i].length()),xfile[i].getAbsolutePath(),image);
 			list.add(message);
 		}
 		if(list.size()==0){
@@ -148,7 +159,7 @@ public class APPFragment extends Fragment implements View.OnClickListener{
 	public void fresh(){
 		isFind();
 		initialize();
-		adapter = new FileAdapter(list,getActivity(),R.layout.down_data,image);
+		adapter = new FileAdapter(list,getActivity(),R.layout.down_data);
 		listView.setAdapter(adapter);
 	}
 	private class OnClickListenerIml implements AdapterView.OnItemClickListener{

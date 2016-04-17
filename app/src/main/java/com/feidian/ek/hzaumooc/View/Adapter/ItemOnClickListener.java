@@ -1,19 +1,16 @@
 package com.feidian.ek.hzaumooc.View.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import com.feidian.ek.hzaumooc.Activity.MainActivity;
 import com.feidian.ek.hzaumooc.Bean.ClassRank;
 import com.feidian.ek.hzaumooc.Bean.GoodClass;
 import com.feidian.ek.hzaumooc.Bean.MainViewTitle;
-import com.feidian.ek.hzaumooc.Bean.RecommendClass;
 import com.feidian.ek.hzaumooc.Bean.YunClass;
-import com.feidian.ek.hzaumooc.R;
-
 /**
  * Created by Administrator on 2016/4/8.
  */
@@ -34,7 +31,8 @@ public class ItemOnClickListener implements AdapterView.OnItemClickListener{
             switch(kind)
             {
                 case MainViewTitle.RECOMMEND:
-                    Toast.makeText(activity,RecommendClass.RecommendClass_CLASSNAME[position],Toast.LENGTH_LONG).show();break;
+                    Toast.makeText(activity,RecommendClass.RecommendClass_CLASSNAME[position],Toast.LENGTH_LONG).show();
+                     break;
                 case MainViewTitle.GOODCLASS:
                     Toast.makeText(activity,GoodClass.COUNTRYRESOURSE_CLASSNAME[position*5+2],Toast.LENGTH_LONG).show();break;
                 case MainViewTitle.YUNCLASS:
