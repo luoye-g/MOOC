@@ -1,4 +1,4 @@
-package com.feidian.ek.hzaumooc.share;
+package com.feidian.ek.hzaumooc.Share;
 
 /**
  * Created by lenovo on 2016/4/9.

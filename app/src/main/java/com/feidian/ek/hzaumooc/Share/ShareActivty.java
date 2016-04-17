@@ -1,4 +1,4 @@
-package com.feidian.ek.hzaumooc.share;
+package com.feidian.ek.hzaumooc.Share;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -17,7 +17,7 @@ public class ShareActivty extends Activity {
     private ListView listView = null;
     private List<ShareM> list = null;
     private ShareAdapter adapter = null;
-    private int[] image = {R.mipmap.qq,R.mipmap.weibo,R.mipmap.weixing,R.mipmap.duanxin,R.mipmap.email};
+    private int[] image = {R.mipmap.qq4,R.mipmap.weibo,R.mipmap.weixing,R.mipmap.weibo2,R.mipmap.weibo4};
     private String[] text = {"QQ","微博","微信","短信","E-mail邮箱"};
     @Override
     protected void onCreate(Bundle savedInstanceState){

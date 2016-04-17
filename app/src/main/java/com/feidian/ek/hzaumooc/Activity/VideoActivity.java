@@ -1,5 +1,6 @@
 package com.feidian.ek.hzaumooc.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +30,11 @@ public class VideoActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_video);
         ButterKnife.bind(this);
+
+        Intent intent = getIntent();
+        if(intent != null) {
+            video_path = intent.getStringExtra("videourl");
+        }
 
         videoView.setVideoPath(video_path);
         videoView.setMediaController(new MediaController(this));

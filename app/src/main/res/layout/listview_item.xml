@@ -10,6 +10,7 @@
     card_view:cardCornerRadius="4dp">
 
     <LinearLayout
+        android:id="@+id/listview_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -19,9 +20,9 @@
             android:id="@+id/lv_cover"
             android:layout_width="140dp"
             android:layout_height="80dp"
+            android:scaleType="fitXY"
             android:background="@color/statusbar_bg"
-            android:fitsSystemWindows="true"
-            android:scaleType="fitXY" />
+            android:fitsSystemWindows="true" />
 
         <LinearLayout
             android:layout_width="wrap_content"

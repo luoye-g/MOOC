@@ -21,10 +21,10 @@
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="2.5dip"
             android:gravity="center"
-            custom:selected_drawable="@mipmap/ic_slide_banner_select"
+            custom:selected_drawable="@drawable/ic_slider_select"
             custom:selected_padding_left="4.0dip"
             custom:selected_padding_right="4.0dip"
-            custom:unselected_drawable="@mipmap/ic_slide_banner_unselect"
+            custom:unselected_drawable="@drawable/ic_slider_unselect"
             custom:unselected_padding_left="4.0dip"
             custom:unselected_padding_right="4.0dip" />
     </FrameLayout>

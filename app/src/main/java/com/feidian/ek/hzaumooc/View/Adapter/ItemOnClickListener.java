@@ -2,14 +2,18 @@ package com.feidian.ek.hzaumooc.View.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
+import com.feidian.ek.hzaumooc.Activity.DetailActivity;
 import com.feidian.ek.hzaumooc.Activity.MainActivity;
 import com.feidian.ek.hzaumooc.Bean.ClassRank;
 import com.feidian.ek.hzaumooc.Bean.GoodClass;
 import com.feidian.ek.hzaumooc.Bean.MainViewTitle;
+import com.feidian.ek.hzaumooc.Bean.RecommendClass;
 import com.feidian.ek.hzaumooc.Bean.YunClass;
 /**
  * Created by Administrator on 2016/4/8.
@@ -26,18 +30,33 @@ public class ItemOnClickListener implements AdapterView.OnItemClickListener{
     }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        Intent intent = new Intent();
+        intent.setClass(activity, DetailActivity.class);
+        Bundle bundle = new Bundle();
+
         if(type==MainAdapter.GIRD)
         {
             switch(kind)
             {
                 case MainViewTitle.RECOMMEND:
-                    Toast.makeText(activity,RecommendClass.RecommendClass_CLASSNAME[position],Toast.LENGTH_LONG).show();
-                     break;
+                    bundle.putString("classname", RecommendClass.RecommendClass_CLASSNAME[position]);
+                    //bundle.putString("cn", RecommendClass.RecommendClass_CN[position]);
+                    bundle.putString("class_image_url", RecommendClass.RecommendClass_JPG[position]);
+                    break;
                 case MainViewTitle.GOODCLASS:
-                    Toast.makeText(activity,GoodClass.COUNTRYRESOURSE_CLASSNAME[position*5+2],Toast.LENGTH_LONG).show();break;
+                    bundle.putString("classname", GoodClass.COUNTRYRESOURSE_CLASSNAME[position*5+2]);
+                    //bundle.putString("cn", GoodClass.COUNTRYRESOURSE_CN[position*5+2]);
+                    bundle.putString("class_image_url", GoodClass.COUNTRYRESOURSE_JPG[position]);
+                    break;
                 case MainViewTitle.YUNCLASS:
-                    Toast.makeText(activity, YunClass.name[position], Toast.LENGTH_LONG).show();break;
-                default:break;
+                    bundle.putString("classname", YunClass.name[position]);
+                    //bundle.putString("cn", YunClass.cn[position]);
+                    bundle.putString("class_image_url",YunClass.image[position]);
+                    break;
+                default:
+                    Toast.makeText(activity,"list", Toast.LENGTH_SHORT).show();
+                    break;
             }
         }
         else if(type == MainAdapter.LIST)
@@ -45,20 +64,42 @@ public class ItemOnClickListener implements AdapterView.OnItemClickListener{
             switch(kind)
             {
                 case MainViewTitle.RANK:
-                    Toast.makeText(activity, ClassRank.ClassRank_CLASSNAME[position], Toast.LENGTH_LONG).show();break;
+                    bundle.putString("classname", RecommendClass.RecommendClass_CLASSNAME[position]);
+                    //bundle.putString("cn", RecommendClass.RecommendClass_CN[position]);
+                    bundle.putString("class_image_url", RecommendClass.RecommendClass_JPG[position]);
+                    break;
                 case MainViewTitle.GOODCLASS_1:
-                    Toast.makeText(activity, GoodClass.COUNTRYVIDEO_CLASSNAME[position], Toast.LENGTH_LONG).show();break;
+                    bundle.putString("classname", GoodClass.COUNTRYVIDEO_CLASSNAME[position]);
+                    bundle.putString("cn", GoodClass.COUNTRYVIDEO_CLASSNAME[position]);
+                    bundle.putString("class_image_url", GoodClass.COUNTRYVIDEO_JPG[position]);
+                    break;
                 case MainViewTitle.GOODCLASS_2:
-                    Toast.makeText(activity, GoodClass.COUNTRYRESOURSE_CLASSNAME[position], Toast.LENGTH_LONG).show();break;
+                    bundle.putString("classname", GoodClass.COUNTRYRESOURSE_CLASSNAME[position]);
+                    //bundle.putString("cn", GoodClass.COUNTRYVIDEO_CN[position]);
+                    bundle.putString("class_image_url", GoodClass.COUNTRYRESOURSE_JPG[position]);
+                    break;
                 case MainViewTitle.GOODCLASS_3:
-                    Toast.makeText(activity, GoodClass.PROVINCEGOODCLASS_CLASSNAME[position], Toast.LENGTH_LONG).show();break;
+                    bundle.putString("classname", GoodClass.PROVINCEGOODCLASS_CLASSNAME[position]);
+                    //bundle.putString("cn", GoodClass.PROVINCEGOODCLASS_CN[position]);
+                    bundle.putString("class_image_url", GoodClass.PROVINCEGOODCLASS_JPG[position]);
+                    break;
                 case MainViewTitle.YUNCLASS:
-                    Toast.makeText(activity, YunClass.name[position], Toast.LENGTH_LONG).show();break;
+                    bundle.putString("classname", YunClass.name[position]);
+                    //bundle.putString("cn", YunClass.cn[position]);
+                    bundle.putString("class_image_url",YunClass.image[position]);
+                    break;
                 case MainViewTitle.RECOMMEND:
-                    Toast.makeText(activity, GoodClass.COUNTRYRESOURSE_CLASSNAME[position], Toast.LENGTH_LONG).show();break;
-                default:break;
+                    bundle.putString("classname", GoodClass.COUNTRYRESOURSE_CLASSNAME[position]);
+                    //bundle.putString("cn", GoodClass.COUNTRYRESOURSE_CN[position]);
+                    bundle.putString("class_image_url", GoodClass.COUNTRYRESOURSE_JPG[position]);
+                    break;
+                default:
+                    Toast.makeText(activity,"list", Toast.LENGTH_SHORT).show();
+                    break;
             }
         }
+        intent.putExtras(bundle);
+        activity.startActivity(intent);
     }
     public void setPosition(int kind)
     {
