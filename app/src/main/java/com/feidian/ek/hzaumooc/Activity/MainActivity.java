@@ -21,6 +21,7 @@ import android.widget.PopupWindow;
 
 import com.feidian.ek.hzaumooc.Bean.MainViewTitle;
 import com.feidian.ek.hzaumooc.R;
+import com.feidian.ek.hzaumooc.Suggestion.SuggestActivity;
 import com.feidian.ek.hzaumooc.Utils.DownloadUtils;
 import com.feidian.ek.hzaumooc.View.Adapter.ShareAdapter;
 import com.feidian.ek.hzaumooc.View.ListDivider;
@@ -90,7 +91,8 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_share) {
             showPopuptWindow();
         } else if (id == R.id.nav_send) {
-
+            Intent intent =new Intent(this,SuggestActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
