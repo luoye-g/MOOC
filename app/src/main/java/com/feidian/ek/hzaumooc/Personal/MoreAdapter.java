@@ -1,9 +1,6 @@
-package com.feidian.ek.hzaumooc.Share;
+package com.feidian.ek.hzaumooc.Personal;
 
-/**
- * Created by lenovo on 2016/4/9.
- */
-
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,52 +12,55 @@ import android.widget.TextView;
 import com.feidian.ek.hzaumooc.R;
 
 import java.util.List;
-public class ShareAdapter extends BaseAdapter {
-    private List<ShareM> list;
-    private Context context;
+
+/**
+ * Created by lenovo on 2016/4/21.
+ */
+public class MoreAdapter extends BaseAdapter{
     private int layout;
-    public ShareAdapter(Context context,List<ShareM> list,int layout){
-        this.context = context;
-        this.list = list;
+    private List<more> data;
+    private Context context;
+    public MoreAdapter(int layout,List<more> data,Context context){
         this.layout = layout;
+        this.data = data;
+        this.context = context;
     }
     @Override
     public int getCount() {
-        return list.size();
+        return data.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return list.get(position);
+        return data.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return position;
+        return 0;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ShareM share = (ShareM)list.get(position);
+        more item = (more)data.get(position);
         View view;
         ViewHolder viewHolder;
         if(convertView==null){
             view = LayoutInflater.from(context).inflate(layout,null);
             viewHolder = new ViewHolder();
-            viewHolder.name = (TextView)view.findViewById(R.id.text);
+            viewHolder.name = (TextView)view.findViewById(R.id.name);
             viewHolder.image = (ImageView)view.findViewById(R.id.image);
             view.setTag(viewHolder);
         }else{
             view = convertView;
             viewHolder = (ViewHolder)view.getTag();
         }
-        viewHolder.image.setImageResource(share.getImage());
-        viewHolder.name.setText(share.getName());
+        viewHolder.image.setImageResource(item.getImage());
+        viewHolder.name.setText(item.getName());
         return view;
     }
     class ViewHolder{
-        ImageView image;
-        TextView name;
+        private ImageView image;
+        private TextView name;
     }
 }
-

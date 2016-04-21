@@ -20,6 +20,7 @@ import android.widget.GridView;
 import android.widget.PopupWindow;
 
 import com.feidian.ek.hzaumooc.Bean.MainViewTitle;
+import com.feidian.ek.hzaumooc.Personal.PersonalActivity;
 import com.feidian.ek.hzaumooc.R;
 import com.feidian.ek.hzaumooc.Suggestion.SuggestActivity;
 import com.feidian.ek.hzaumooc.Utils.DownloadUtils;
@@ -75,7 +76,7 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Intent intent =new Intent(this,DetailActivity.class);
+            Intent intent =new Intent(this,PersonalActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_gallery) {
