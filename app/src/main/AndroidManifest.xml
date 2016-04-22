@@ -46,6 +46,8 @@
             android:screenOrientation="landscape"
             android:theme="@style/NoTitleFullscreen" />
         <activity android:name=".download.DowloadAcivity"></activity>
+        <activity android:name=".Suggestion.SuggestActivity"></activity>
+        <activity android:name=".Personal.PersonalActivity"></activity>
     </application>
 
 </manifest>
