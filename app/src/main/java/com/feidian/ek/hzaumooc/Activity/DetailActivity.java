@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.feidian.ek.hzaumooc.Bean.TeacherSource;
 import com.feidian.ek.hzaumooc.Bean.VideoUrl;
 import com.feidian.ek.hzaumooc.R;
 import com.feidian.ek.hzaumooc.View.Fragment.ResourceFragment;
@@ -51,11 +52,21 @@ public class DetailActivity extends BaseActivity {
             String imageUrl = bundle.getString("class_image_url");
             Glide.with(this).load(imageUrl).error(R.mipmap.school).into(background_iv);
 
-            VideoUrl videoUrl = getVideoUrl(classname);
+            VideoUrl videoUrl = getVideoUrl(classname);//取枚举数据
+            TeacherSource teacherSource=getTeacherSource(classname);
             if(videoUrl != null) {
                 send.putInt("videos", videoUrl.StringID);
             }  else {
                 send.putInt("videos", 0);
+            }
+            if(teacherSource!=null)
+            {
+                send.putInt("source",teacherSource.StringID);
+            }
+            else
+            {
+                send.putInt("source",0);
+                send.putString("class_url",bundle.getString("class_url"));
             }
 
 
@@ -82,5 +93,16 @@ public class DetailActivity extends BaseActivity {
             e.printStackTrace();
         }
         return videoUrl;
+    }
+    private TeacherSource getTeacherSource(String name)
+    {
+        TeacherSource teacherSource=null;
+
+        try{
+            teacherSource=TeacherSource.valueOf(name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return teacherSource;
     }
 }

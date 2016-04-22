@@ -14,7 +14,7 @@ import com.feidian.ek.hzaumooc.R;
  * Created by Administrator on 2016/4/12.
  */
 public class ShareAdapter extends BaseAdapter{
-    int[] Image={R.mipmap.qq4,R.mipmap.qqkj4,R.mipmap.weibo4,R.mipmap.weixing4};
+    int[] Image={R.mipmap.newqq,R.mipmap.newkongjian,R.mipmap.newweibo,R.mipmap.newweixing};
     String[] name={"QQ","QQ空间","微博","微信"};
     Context activity;
     public ShareAdapter(Context context)

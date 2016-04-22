@@ -13,6 +13,7 @@
         android:id="@+id/listview_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
         android:layout_margin="8dp"
         android:orientation="horizontal">
 
@@ -35,6 +36,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#616161"
+                android:ellipsize="marquee"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:focusable="true"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 

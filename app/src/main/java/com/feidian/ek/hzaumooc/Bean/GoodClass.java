@@ -6,7 +6,7 @@ package com.feidian.ek.hzaumooc.Bean;
 public class GoodClass {
     public static final String[] CLASSKIND={"国家级精品视频公开课","国家级精品资源共享课","省级精品课程"};
     public static final String[] COUNTRYVIDEO_JPG={  //国家级精品视频公开课图片
-            "http://211.69.141.12/upload/ffbc137c-9283-4ab6-b474-68096d2846d7.jpg",
+            "http://img1.cache.netease.com/video/2014/3/20/201403201815487b4d7.jpg",
             "http://211.69.141.12/upload/62c39c44-16ca-4975-b119-9c00f0f84498.jpg"};
     public static final String[] COUNTRYVIDEO_WEB={//国家级精品视频公开课链接网址
             "http://course.hzau.edu.cn/G2S/Template/View.aspx?action=view&courseType=0&courseId=111",

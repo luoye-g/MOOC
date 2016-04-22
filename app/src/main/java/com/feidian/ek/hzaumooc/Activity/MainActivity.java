@@ -74,8 +74,6 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Intent intent =new Intent(this,DetailActivity.class);
-            startActivity(intent);
 
         } else if (id == R.id.nav_gallery) {
             Intent intent =new Intent(this,DowloadAcivity.class);

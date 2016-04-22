@@ -43,16 +43,19 @@ public class ItemOnClickListener implements AdapterView.OnItemClickListener{
                     bundle.putString("classname", RecommendClass.RecommendClass_CLASSNAME[position]);
                     //bundle.putString("cn", RecommendClass.RecommendClass_CN[position]);
                     bundle.putString("class_image_url", RecommendClass.RecommendClass_JPG[position]);
+                    bundle.putString("class_url",RecommendClass.RecommendClass_WEB[position]);
                     break;
                 case MainViewTitle.GOODCLASS:
                     bundle.putString("classname", GoodClass.COUNTRYRESOURSE_CLASSNAME[position*5+2]);
                     //bundle.putString("cn", GoodClass.COUNTRYRESOURSE_CN[position*5+2]);
-                    bundle.putString("class_image_url", GoodClass.COUNTRYRESOURSE_JPG[position]);
+                    bundle.putString("class_image_url", GoodClass.COUNTRYRESOURSE_JPG[position*5+2]);
+                    bundle.putString("class_url",GoodClass.COUNTRYRESOURSE_WEB[position*5+2]);
                     break;
                 case MainViewTitle.YUNCLASS:
                     bundle.putString("classname", YunClass.name[position]);
                     //bundle.putString("cn", YunClass.cn[position]);
                     bundle.putString("class_image_url",YunClass.image[position]);
+                    bundle.putString("class_url",YunClass.web[position]);
                     break;
                 default:
                     Toast.makeText(activity,"list", Toast.LENGTH_SHORT).show();
@@ -67,31 +70,37 @@ public class ItemOnClickListener implements AdapterView.OnItemClickListener{
                     bundle.putString("classname", RecommendClass.RecommendClass_CLASSNAME[position]);
                     //bundle.putString("cn", RecommendClass.RecommendClass_CN[position]);
                     bundle.putString("class_image_url", RecommendClass.RecommendClass_JPG[position]);
+                    bundle.putString("class_url",RecommendClass.RecommendClass_WEB[position]);
                     break;
                 case MainViewTitle.GOODCLASS_1:
                     bundle.putString("classname", GoodClass.COUNTRYVIDEO_CLASSNAME[position]);
-                    bundle.putString("cn", GoodClass.COUNTRYVIDEO_CLASSNAME[position]);
+                    //bundle.putString("cn", GoodClass.COUNTRYVIDEO_CLASSNAME[position]);
                     bundle.putString("class_image_url", GoodClass.COUNTRYVIDEO_JPG[position]);
+                    bundle.putString("class_url",GoodClass.COUNTRYVIDEO_WEB[position]);
                     break;
                 case MainViewTitle.GOODCLASS_2:
                     bundle.putString("classname", GoodClass.COUNTRYRESOURSE_CLASSNAME[position]);
                     //bundle.putString("cn", GoodClass.COUNTRYVIDEO_CN[position]);
                     bundle.putString("class_image_url", GoodClass.COUNTRYRESOURSE_JPG[position]);
+                    bundle.putString("class_url",GoodClass.COUNTRYRESOURSE_WEB[position]);
                     break;
                 case MainViewTitle.GOODCLASS_3:
                     bundle.putString("classname", GoodClass.PROVINCEGOODCLASS_CLASSNAME[position]);
                     //bundle.putString("cn", GoodClass.PROVINCEGOODCLASS_CN[position]);
                     bundle.putString("class_image_url", GoodClass.PROVINCEGOODCLASS_JPG[position]);
+                    bundle.putString("class_url",GoodClass.PROVINCEGOODCLASS_WEB[position]);
                     break;
                 case MainViewTitle.YUNCLASS:
                     bundle.putString("classname", YunClass.name[position]);
                     //bundle.putString("cn", YunClass.cn[position]);
                     bundle.putString("class_image_url",YunClass.image[position]);
+                    bundle.putString("class_url",YunClass.web[position]);
                     break;
                 case MainViewTitle.RECOMMEND:
                     bundle.putString("classname", GoodClass.COUNTRYRESOURSE_CLASSNAME[position]);
                     //bundle.putString("cn", GoodClass.COUNTRYRESOURSE_CN[position]);
                     bundle.putString("class_image_url", GoodClass.COUNTRYRESOURSE_JPG[position]);
+                    bundle.putString("class_url",GoodClass.COUNTRYRESOURSE_WEB[position]);
                     break;
                 default:
                     Toast.makeText(activity,"list", Toast.LENGTH_SHORT).show();

@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.feidian.ek.hzaumooc.Activity.VideoActivity;
 import com.feidian.ek.hzaumooc.R;
 import com.feidian.ek.hzaumooc.View.Adapter.ListAdapter;
@@ -53,11 +54,11 @@ public class VideoListFragment extends Fragment{
             System.out.println("有资源");
         }
         else {
+            System.out.println("没有资源");
             recyclerView.setAdapter(new videoListAdapter(getActivity()));
-            System.out.println("null");
         }
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.addItemDecoration(new ListDivider());
+        //recyclerView.addItemDecoration(new ListDivider());
         return root;
     }
 
@@ -84,6 +85,7 @@ public class VideoListFragment extends Fragment{
             videoList.add(test1);
             videoList.add(test2);
             videoList.add(test3);
+            System.out.println(videoList);
         }
 
         public videoListAdapter(String[] videos, Context context) {
@@ -100,6 +102,7 @@ public class VideoListFragment extends Fragment{
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
             ((VideoHodler) holder).name.setText("第" + (position + 1) + "讲");
+            ((VideoHodler) holder).cover.setImageResource(R.mipmap.school);
 
             ((VideoHodler) holder).ll.setOnClickListener(new View.OnClickListener() {
                 @Override
