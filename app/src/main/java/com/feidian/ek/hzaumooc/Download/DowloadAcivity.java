@@ -43,17 +43,17 @@ public class DowloadAcivity extends FragmentActivity {
         line = findViewById(R.id.line);
         // 初始化TextView动画
         // ViewPropertyAnimator.animate(tab_app).scaleX(1.2f).setDuration(0);
-        tab_app.animate().scaleX(1.2f).setDuration(0);
+        tab_app.animate().scaleX(1.2f).setDuration(0); //设置动画，字扩大到1.2倍
         //ViewPropertyAnimator.animate(tab_app).scaleY(1.2f).setDuration(0);
         tab_app.animate().scaleY(1.2f).setDuration(0);
 
-        fragments = new ArrayList<Fragment>();
+        fragments = new ArrayList<Fragment>();//填充两个fragment
         fragments.add(new APPFragment());
         fragments.add(new GameFragment());
         line_width = getWindowManager().getDefaultDisplay().getWidth()
-                / fragments.size();
-        line.getLayoutParams().width = line_width;
-        line.requestLayout();
+                / fragments.size();//计算指示栏的长度
+        line.getLayoutParams().width = line_width;//设置指示栏的长度
+        line.requestLayout();//??
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(new FragmentStatePagerAdapter(
                 getSupportFragmentManager()) {
@@ -107,7 +107,7 @@ public class DowloadAcivity extends FragmentActivity {
         });
     }
     /* 根据传入的值来改变状态 */
-    private void changeState(int arg0) {
+    private void changeState(int arg0) { //设置选择的变化动画
         Message msg = new Message();
         msg.what = 1;
         handler.sendMessage(msg);

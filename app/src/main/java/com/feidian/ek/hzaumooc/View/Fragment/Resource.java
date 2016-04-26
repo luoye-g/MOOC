@@ -22,6 +22,7 @@ public class Resource {
     private String url="";
     List<Map<String,String>> list;
     static final String main_url="http://course.hzau.edu.cn";
+    static final String l="http://course.hzau.edu.cn/G2S/";//资源有关的网基址
     public Resource(String url,List<Map<String,String>> list)
     {
         this.url=url;
@@ -55,9 +56,32 @@ public class Resource {
             Elements wenjian = d.getElementsByTag("a");
             Map<String,String> map=new HashMap<String, String>();
             map.put("name",d.text());
-            map.put("web",wenjian.attr("href").trim());
+            String web=addResourceweb(wenjian.attr("href").trim());
+            map.put("web",web);
             list.add(map);
         }
 
+    }
+    private String addResourceweb(String d)
+    {
+        String resourceweb="";
+        StringBuilder string=new StringBuilder();
+        string.append(d);
+        string.delete(0, 3);
+        url=l+string.toString();
+        System.out.println(url);
+        try {
+            Document document=Jsoup.connect(url).get();
+            Elements element=document.getElementsByTag("EMBED");
+            for(Element id:element)
+            {
+                resourceweb=id.attr("src").trim();
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            resourceweb="http://211.69.141.12/upload/20160223221220768.ppt";
+        }
+        return resourceweb;
     }
 }

@@ -61,8 +61,8 @@ public class DownloadAdapter extends BaseAdapter{
             view = LayoutInflater.from(context).inflate(layout,null);
             viewHolder = new ViewHolder();
             viewHolder.text_name = (TextView)view.findViewById(R.id.text_name);
-            viewHolder.delete = (ImageView)view.findViewById(R.id.delete);
-            viewHolder.delete.setOnClickListener(new OnItemChildClickListener(DELETE,position));
+            //viewHolder.delete = (ImageView)view.findViewById(R.id.delete);
+            viewHolder.text_name.setOnClickListener(new OnItemChildClickListener(DELETE,position));
             view.setTag(viewHolder);
         }else{
             view = convertView;
@@ -73,7 +73,7 @@ public class DownloadAdapter extends BaseAdapter{
     }
     class ViewHolder{
         TextView text_name;
-        ImageView delete;
+        //ImageView delete;
     }
     public class OnItemChildClickListener implements View.OnClickListener {
         // 点击类型索引，对应前面的CLICK_INDEX_xxx

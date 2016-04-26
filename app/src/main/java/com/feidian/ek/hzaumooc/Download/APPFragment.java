@@ -79,7 +79,16 @@ public class APPFragment extends Fragment implements View.OnClickListener{
 				image = R.mipmap.png;
 			}else if(name.equals("mp4")||name.equals("3gp")){
 				image = R.mipmap.vedio;
-			}else{
+			}
+			else if(name.equals("ppt"))
+			{
+				image=R.mipmap.ppt2;
+			}
+			else if(name.equals("swf"))
+			{
+				image=R.mipmap.sef;
+			}
+			else{
 				image = R.mipmap.unknow;
 			}
 			message = new FileM(xfile[i].getName(),String.valueOf(

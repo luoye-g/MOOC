@@ -25,6 +25,8 @@ import android.widget.TextView;
 import com.feidian.ek.hzaumooc.Activity.VideoActivity;
 import com.feidian.ek.hzaumooc.R;
 import com.feidian.ek.hzaumooc.View.Adapter.ListAdapter;
+import com.feidian.ek.hzaumooc.download.DowloadAcivity;
+import com.feidian.ek.hzaumooc.download.Download;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -84,7 +86,7 @@ public class ResourceFragment extends Fragment {
         static final int WEB=1;
         static final int STATIC=2;
 
-        List<String> videoList ;
+        List<String> videoList= new ArrayList<String>(); ;
         Context context;
         int kind=0;
 
@@ -100,6 +102,17 @@ public class ResourceFragment extends Fragment {
             public VideoHodler(View itemView) {
                 super(itemView);
                 ButterKnife.bind(this, itemView);
+                cover.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            }
+        }
+        class NoResourceHolder extends RecyclerView.ViewHolder
+        {
+            @Bind(R.id.down_load_no)
+            TextView noresource;
+
+            public NoResourceHolder(View itemView) {
+                super(itemView);
+                ButterKnife.bind(this,itemView);
             }
         }
 
@@ -109,7 +122,6 @@ public class ResourceFragment extends Fragment {
         }
 
         public SourceListAdapter(String[] videos, Context context) {
-            videoList = new ArrayList<String>();
             Collections.addAll(videoList, videos);
             this.context = context;
             kind=STATIC;
@@ -117,42 +129,66 @@ public class ResourceFragment extends Fragment {
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            VideoHodler hodler = new VideoHodler(LayoutInflater.from(context).inflate(R.layout.listview_item, parent, false));
-            return hodler;
+
+            if(videoList.size()!=0 || resourceList.size()!=0)
+            { VideoHodler hodler;
+              hodler = new VideoHodler(LayoutInflater.from(context).inflate(R.layout.listview_item, parent, false));
+            return hodler;}
+            else
+            {
+
+                NoResourceHolder hodler=new NoResourceHolder(LayoutInflater.from(context).inflate(R.layout.down_load,parent,false));
+                return hodler;
+            }
+
         }
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-            if(kind==STATIC) resourceStatic(holder,position);
-            else
-            {
-                resourceWeb(holder, position);
+            if(holder instanceof VideoHodler) {
+                if (kind == STATIC) resourceStatic(holder, position);
+                else {
+                    resourceWeb(holder, position);
 
-            }
-            ((VideoHodler) holder).ll.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    showPopupwindows();
-                    return false;
                 }
-            });
+                ((VideoHodler) holder).ll.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        showPopupwindows();
+                        return false;
+                    }
+                });
+            }
+            if(holder instanceof NoResourceHolder)
+            {
+                ((NoResourceHolder)holder).noresource.setText("老师很懒...静请期待...");
+            }
         }
         void resourceStatic(RecyclerView.ViewHolder holder, final int position)
         {
             ((VideoHodler) holder).name.setText("第" + (position + 1) + "讲");
-            ((VideoHodler) holder).cover.setImageResource(R.mipmap.ppt);
+            ((VideoHodler) holder).cover.setImageResource(R.mipmap.ppt2);
         }
         void resourceWeb(RecyclerView.ViewHolder holder, final int position)
         {
-            ((VideoHodler) holder).name.setText(resourceList.get(position).get("name"));
-            ((VideoHodler) holder).cover.setImageResource(R.mipmap.ppt);
+            String s=resourceList.get(position).get("name");
+            ((VideoHodler) holder).name.setText(s);
+            if(s.endsWith("swf"))
+            {
+                ((VideoHodler) holder).cover.setImageResource(R.mipmap.sef);
+            }
+            else if(s.endsWith("rar"))
+            ((VideoHodler) holder).cover.setImageResource(R.mipmap.rar);
+            else
+                ((VideoHodler) holder).cover.setImageResource(R.mipmap.ppt2);
         }
+
 
         @Override
         public int getItemCount() {
-            if(kind==STATIC) return videoList.size();
-            else if(kind==WEB) return resourceList.size();
-            else return 0;
+            if(kind==STATIC && videoList.size()!=0) return videoList.size();
+            else if(kind==WEB && resourceList.size()!=0) {return resourceList.size();}
+            else return 1;
         }
     }
     private void showPopupwindows()
@@ -160,6 +196,18 @@ public class ResourceFragment extends Fragment {
         LayoutInflater layoutInflater=getActivity().getLayoutInflater();
         View view=layoutInflater.inflate(R.layout.resourcedownload,null);
         Button botton= (Button) view.findViewById(R.id.resource_cancel);
+        Button download=(Button) view.findViewById(R.id.resource_download);
+        download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Download.startDownload(getContext(),"http://211.69.141.12/upload/20150120115818706.ppt");
+                popupWindow.dismiss();
+                popupWindow=null;
+                Intent intent=new Intent();
+                intent.setClass(getContext(), DowloadAcivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
         botton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

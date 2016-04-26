@@ -107,6 +107,7 @@ public class ItemOnClickListener implements AdapterView.OnItemClickListener{
                     break;
             }
         }
+        System.out.println("进来了");
         intent.putExtras(bundle);
         activity.startActivity(intent);
     }

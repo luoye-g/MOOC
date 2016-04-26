@@ -86,23 +86,26 @@ public class GameFragment extends Fragment {
 		public void run() {
 			for(int i = 0;i<DownloadUtils.downloadId.size();){
 				view = listView.getChildAt(i);
-				  progressBar = (ProgressBar)view.findViewById(R.id.progressBar);
-				  size = (TextView)view.findViewById(R.id.size);
-				DownloadManager.Query query = new DownloadManager.Query().setFilterById(DownloadUtils.downloadId.get(i));
-				Cursor cursor = DownloadUtils.downloadManager.query(query);
-				int now = 0,total = 0;
-				if (cursor != null && cursor.moveToFirst()) {
-					now = cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
-					total = cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
-					size.setText(change(now, total));
-					progressBar.setProgress(now);
-					progressBar.setMax(total);
-					if(now==total){
-						onUpdateView(i);
-					}else{
-						i++;
+				if(view!=null) {
+					progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+					size = (TextView) view.findViewById(R.id.size);
+					DownloadManager.Query query = new DownloadManager.Query().setFilterById(DownloadUtils.downloadId.get(i));
+					Cursor cursor = DownloadUtils.downloadManager.query(query);
+					int now = 0, total = 0;
+					if (cursor != null && cursor.moveToFirst()) {
+						now = cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
+						total = cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+						size.setText(change(now, total));
+						progressBar.setProgress(now);
+						progressBar.setMax(total);
+						if (now == total) {
+							onUpdateView(i);
+						} else {
+							i++;
+						}
 					}
 				}
+				else i++;
 			}
 			downloadHandler.postDelayed(this,1000);
 		}

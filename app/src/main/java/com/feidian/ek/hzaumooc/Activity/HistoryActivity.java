@@ -10,13 +10,17 @@ import android.widget.TextView;
 import com.feidian.ek.hzaumooc.R;
 import com.feidian.ek.hzaumooc.View.TimeLinearLayout;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class HistoryActivity extends AppCompatActivity {
 
-    String [] s={"美丽汉语","精品数学","美丽增老师"};
-    String[] data={"2016-01-21","2016-04-08","2016-04-19"};
+    String [] s={"魅力汉语","精品数学","Java课程设计"};
+    String[] data={"2016-04-22","2016-04-19","2016-04-08"};
     @Bind(R.id.history_toolbar)
     Toolbar toolbar;
     @Bind(R.id.timeline_layout)
@@ -27,9 +31,9 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
         ButterKnife.bind(this);
         toolbar.setTitle("浏览历史");
-        for (int i=0;i<=10;i++)
+        for (int i=0;i<s.length;i++)
         {
-            addItem(i%3);
+            addItem(i);
         }
     }
     private void addItem(int position) {
