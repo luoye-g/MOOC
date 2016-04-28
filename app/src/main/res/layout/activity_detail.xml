@@ -28,7 +28,14 @@
                 android:scaleType="centerCrop"
                 android:fitsSystemWindows="true"
                 android:src="@mipmap/school"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/gray_shape"
+                android:layout_marginTop="150dp"
+                />
 
 
 
